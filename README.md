@@ -39,6 +39,12 @@ yum-config-manager \
 yum install -y docker-ce
 ```
 
+### Troubleshooting Docker installation issue
+```
+su -
+yum install -y docker-ce --allowerasing
+```
+
 You may start the docker service
 ```
 su -
