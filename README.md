@@ -71,7 +71,7 @@ docker images
 #### Troubleshooting permission denied issue
 ```
 su -
-usermod -aG docker rps
+usermod -aG docker devops
 sudo su devops
 docker images
 ```
