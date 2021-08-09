@@ -221,3 +221,12 @@ ubuntu1 | SUCCESS => {
 }
 [jegan@localhost Day1]$ 
 </pre>
+
+### What happens when you execute an Ansible adhoc command
+1. Ansible Creates a temp directory in the ACM and on the Ansible Node(s).
+2. Ansible then copies the ansible module from ACM into the ACM temp folder and paste all the python inclues inline in the same python script.
+3. Using sftp/scp, Ansible then copies from the python script from ACM temp to Ansible Node temp folder.
+4. Ansible gives execute permission to the Python script.
+5. Executes the Python script on the Ansible Nodes and captures the output from the remote machines.
+6. Cleans up by deleting the temp folder on the ansible remote machines.
+7. Gives a summary of output in the ACM.
