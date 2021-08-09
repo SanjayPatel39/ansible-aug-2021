@@ -21,7 +21,7 @@ The expected output is
 ansible 2.9.23
   config file = /etc/ansible/ansible.cfg
   configured module search path = ['/home/jegan/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  ansible python module location = /usr/lib/python3.6/site-packages/ansibleYou may s
   executable location = /usr/bin/ansible
   python version = 3.6.8 (default, Aug 24 2020, 17:57:11) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
 [jegan@localhost Ansible]$ 
@@ -31,11 +31,7 @@ ansible 2.9.23
 ```
 su -
 yum install -y yum-utils
-
-yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum install -y docker-ce
 ```
 
@@ -52,6 +48,7 @@ systemctl enable docker
 systemctl start docker
 systemctl status docker
 ```
+To come out of the status command, type 'q'
 
 You may check if you are able to execute docker commands as regular user
 ```
