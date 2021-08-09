@@ -106,3 +106,12 @@ The key's randomart image is:
 +----[SHA256]-----+
 [devops@localhost ~]$ 
 </pre>
+
+### Building a custom ubuntu ansible node
+```
+cd /home/devops/ansible-aug-2021
+git pull
+cd Day1/ubuntu-ansible
+cp ~/.ssh/id_rsa.pub authorized_keys
+docker build -t tektutor/ansible-ubuntu .
+```
