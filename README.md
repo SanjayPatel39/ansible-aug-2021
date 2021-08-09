@@ -1,3 +1,9 @@
+### Installing Git
+```
+su -
+yum install git
+```
+
 ### Installing Ansible
 ```
 su -
