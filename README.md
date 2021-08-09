@@ -116,3 +116,16 @@ cp ~/.ssh/id_rsa.pub authorized_keys
 docker build -t tektutor/ansible-ubuntu .
 ```
 You may optionally change 'tektutor' startup name with your organization name.
+
+#### See if you are able to list the custom images
+```
+docker images
+```
+The expected output is
+<pre>
+[jegan@localhost ubuntu-ansible]$ docker images
+REPOSITORY                TAG       IMAGE ID       CREATED          SIZE
+tektutor/ansible-ubuntu   latest    fbd15f46e99a   14 seconds ago   220MB
+ubuntu                    16.04     38b3fa4640d4   13 days ago      135MB
+[jegan@localhost ubuntu-ansible]$ 
+</pre>
