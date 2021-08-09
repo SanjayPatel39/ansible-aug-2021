@@ -4,6 +4,18 @@ su -
 yum install git
 ```
 
+### Cloning this repository (Try this command as devops user only the first time)
+```
+git clone https://github.com/tektutor/ansible-aug-2021.git
+cd ansible-aug-2021
+```
+
+### Moving forward, every time I push new code, you need to pull(not clone)
+```
+cd /home/devops/ansible-aug-2021
+git pull
+```
+
 ### Installing Ansible
 ```
 su -
