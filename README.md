@@ -162,7 +162,7 @@ The expected output is shown below
 <pre>
 [jegan@localhost Day1]$ ssh -p 2001 root@localhost
 The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
-ECDSA key fingerprint is SHA256:irBMfGdAaC2ufLDoy0KZsb5D33z7eqtF/+lv30OxHIY.
+ECDSA key fingerprint is SHA256:irBMfGdAaC2ufLDoygathering=explicit0KZsb5D33z7eqtF/+lv30OxHIY.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '[localhost]:2001' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.18.0-240.el8.x86_64 x86_64)
@@ -230,3 +230,11 @@ ubuntu1 | SUCCESS => {
 5. Executes the Python script on the Ansible Nodes and captures the output from the remote machines.
 6. Cleans up by deleting the temp folder on the ansible remote machines.
 7. Gives a summary of output in the ACM.
+
+### Executing the Ansible Playbook
+```
+cd ~/ansible-aug-2021
+git pull
+cd Day1
+ansible-playbook -i inventory ping.yml
+```
