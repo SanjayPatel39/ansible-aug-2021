@@ -238,3 +238,11 @@ git pull
 cd Day1
 ansible-playbook -i inventory ping.yml
 ```
+
+### Executing the Ansible Playbook when ansible.cfg is present in current directory
+```
+cd ~/ansible-aug-2021
+git pull
+cd Day1
+ansible-playbook ping.yml
+```
