@@ -279,3 +279,11 @@ exit
 ssh -p 2004 root@localhost
 exit
 ```
+
+### Using the refactored inventory file
+```
+cd ~/ansible-aug-2021
+git pull
+cd Day1
+ansible -i hosts all -m ping
+```
