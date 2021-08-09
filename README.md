@@ -77,8 +77,12 @@ docker images
 ```
 
 ### Generate you key pair for devops user
+```
+ssh-keygen
+```
+The expected output is shown below
+
 <pre>
-[devops@localhost ~]$ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/devops/.ssh/id_rsa): 
 Created directory '/home/devops/.ssh'.
