@@ -146,3 +146,15 @@ CONTAINER ID   IMAGE                     COMMAND               CREATED          
 9d46ec6d3a5d   tektutor/ansible-ubuntu   "/usr/sbin/sshd -D"   7 seconds ago    Up 5 seconds    0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
 aa5a4350bc75   tektutor/ansible-ubuntu   "/usr/sbin/sshd -D"   20 seconds ago   Up 18 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
 </pre>
+
+#### Test ssh connectivity (as devops user)
+```
+ssh -p 2001 root@localhost
+exit
+ssh -p 2002 root@localhost
+exit
+```
+When it prompts with the question, you need to type yes
+```
+Are you sure, do you want to continue connecting yes/no?
+```
