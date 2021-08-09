@@ -72,7 +72,7 @@ docker images
 ```
 su -
 usermod -aG docker rps
-sudo su rps
+sudo su devops
 docker images
 ```
 
