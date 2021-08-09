@@ -185,3 +185,39 @@ Delete the file that errors out, for example
 rm -f /home/devops/ansible-aug-2021/Day1/ubuntu-ansible/authorized_keys
 git pull
 ```
+
+### Executing Ansible ad-hoc command
+```
+cd Day1
+ansible -i inventory -m ping
+```
+
+The expected output is shown below
+
+<pre>
+[jegan@localhost Ansible]$ cd Day1
+[jegan@localhost Day1]$ ls
+inventory  ubuntu-ansible
+[jegan@localhost Day1]$ pwd
+/home/jegan/Ansible/Day1
+[jegan@localhost Day1]$ ls -l
+total 4
+-rw-rw-r--. 1 jegan jegan 218 Aug  9 00:30 inventory
+drwxrwxr-x. 2 jegan jegan  47 Aug  8 23:53 ubuntu-ansible
+[jegan@localhost Day1]$ ansible -i inventory all -m ping
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[jegan@localhost Day1]$ 
+</pre>
