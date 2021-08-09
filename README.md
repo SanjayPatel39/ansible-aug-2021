@@ -75,3 +75,30 @@ usermod -aG docker rps
 sudo su rps
 docker images
 ```
+
+### Generate you key pair for devops user
+<pre>
+[devops@localhost ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/devops/.ssh/id_rsa): 
+Created directory '/home/devops/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/devops/.ssh/id_rsa.
+Your public key has been saved in /home/devops/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:zJM9Xq61M4HQ31aBkDPqFff37hr6iCfeF8dLJCd0E7I devops@localhost.localdomain
+The key's randomart image is:
++---[RSA 3072]----+
+|           .o....|
+|           = +o+ |
+|         .. *Eo o|
+|       o.+.. o +o|
+|        S.+o..=oo|
+|         +.+o +.+|
+|          . ooo+.|
+|          .=++.o.|
+|         .+o==oo.|
++----[SHA256]-----+
+[devops@localhost ~]$ 
+</pre>
