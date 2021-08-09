@@ -39,13 +39,13 @@ yum-config-manager \
 yum install -y docker-ce
 ```
 
-### Troubleshooting Docker installation issue
+#### Troubleshooting Docker installation issue
 ```
 su -
 yum install -y docker-ce --allowerasing
 ```
 
-You may start the docker service
+#### Starting the docker service
 ```
 su -
 systemctl enable docker
@@ -59,7 +59,7 @@ docker --version
 docker images
 ```
 
-Troubleshooting permission denied issue
+#### Troubleshooting permission denied issue
 ```
 su -
 usermod -aG docker rps
