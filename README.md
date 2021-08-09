@@ -178,3 +178,10 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 </pre>
+
+### Troubleshooting git pull
+Delete the file that errors out, for example
+```
+rm -f /home/devops/ansible-aug-2021/Day1/ubuntu-ansible/authorized_keys
+git pull
+```
