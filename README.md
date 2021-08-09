@@ -115,3 +115,4 @@ cd Day1/ubuntu-ansible
 cp ~/.ssh/id_rsa.pub authorized_keys
 docker build -t tektutor/ansible-ubuntu .
 ```
+You may optionally change 'tektutor' startup name with your organization name.
