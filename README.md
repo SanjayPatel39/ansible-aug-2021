@@ -129,3 +129,20 @@ tektutor/ansible-ubuntu   latest    fbd15f46e99a   14 seconds ago   220MB
 ubuntu                    16.04     38b3fa4640d4   13 days ago      135MB
 [jegan@localhost ubuntu-ansible]$ 
 </pre>
+
+### Create ubuntu1 and ubuntu2 containers out of the newly build custom image
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu
+```
+
+#### List the containers
+```
+docker ps
+```
+The expected output is
+<pre>[jegan@localhost Day1]$ docker ps
+CONTAINER ID   IMAGE                     COMMAND               CREATED          STATUS          PORTS                                                                          NAMES
+9d46ec6d3a5d   tektutor/ansible-ubuntu   "/usr/sbin/sshd -D"   7 seconds ago    Up 5 seconds    0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
+aa5a4350bc75   tektutor/ansible-ubuntu   "/usr/sbin/sshd -D"   20 seconds ago   Up 18 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
+</pre>
