@@ -178,3 +178,55 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 </pre>
+
+### Troubleshooting git pull
+Delete the file that errors out, for example
+```
+rm -f /home/devops/ansible-aug-2021/Day1/ubuntu-ansible/authorized_keys
+git pull
+```
+
+### Executing Ansible ad-hoc command
+```
+cd Day1
+ansible -i inventory -m ping
+```
+
+The expected output is shown below
+
+<pre>
+[jegan@localhost Ansible]$ cd Day1
+[jegan@localhost Day1]$ ls
+inventory  ubuntu-ansible
+[jegan@localhost Day1]$ pwd
+/home/jegan/Ansible/Day1
+[jegan@localhost Day1]$ ls -l
+total 4
+-rw-rw-r--. 1 jegan jegan 218 Aug  9 00:30 inventory
+drwxrwxr-x. 2 jegan jegan  47 Aug  8 23:53 ubuntu-ansible
+[jegan@localhost Day1]$ ansible -i inventory all -m ping
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[jegan@localhost Day1]$ 
+</pre>
+
+### What happens when you execute an Ansible adhoc command
+1. Ansible Creates a temp directory in the ACM and on the Ansible Node(s).
+2. Ansible then copies the ansible module from ACM into the ACM temp folder and paste all the python inclues inline in the same python script.
+3. Using sftp/scp, Ansible then copies from the python script from ACM temp to Ansible Node temp folder.
+4. Ansible gives execute permission to the Python script.
+5. Executes the Python script on the Ansible Nodes and captures the output from the remote machines.
+6. Cleans up by deleting the temp folder on the ansible remote machines.
+7. Gives a summary of output in the ACM.
