@@ -246,3 +246,36 @@ git pull
 cd Day1
 ansible-playbook ping.yml
 ```
+
+### Building centos custom ansible node image
+```
+cd ~/ansible-aug-2021
+git pull
+cd Day1/centos-ansible
+cp ~/.ssh/id_rsa.pub authorized_keys
+docker build -t tektutor/ansible-centos .
+```
+
+### Verify if the newly built centos image is getting listed
+```
+docker images
+```
+
+### Let's create centos1 and centos2 containers using the newly built centos custom image
+```
+docker run -d --name centos1 --hostname centos1 -p 2003:22 -p 8003:80 tektutor/ansible-centos 
+docker run -d --name centos2 --hostname centos2 -p 2004:22 -p 8004:80 tektutor/ansible-centos 
+```
+
+### Check if the centos1 and centos2 containers are running currently
+```
+docker ps
+```
+
+### See if you can SSH into centos1 and centos2 container without typing password
+```
+ssh -p 2003 root@localhost
+exit
+ssh -p 2004 root@localhost
+exit
+```
