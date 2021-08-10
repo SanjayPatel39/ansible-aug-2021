@@ -1,0 +1,13 @@
+- name: This playbook demonstrates practical uses of with_sequence loop feature in Ansible
+  hosts: localhost
+  tasks:
+     - name: Provision ubuntu containers
+       docker_container:
+            image: tektutor/ansible-ubuntu:latest
+            name: "ubuntu{{item}}"
+            hostname: "ubuntu{{item}}"
+            ports:
+              - "2{{item}}:22"
+              - "8{{item}}:80"
+       with_sequence: start=1 end=10 format="%03d"
+

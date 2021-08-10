@@ -1,0 +1,11 @@
+- name: Demonstrates use of ignore flag
+  hosts: all 
+  tasks:
+   - block:
+      - name: This task will fail
+        shell: sdfsdfsda
+
+      - name: Second task
+        shell: hostname -i 
+     rescue:
+      - debug: msg="Error occurred, Inside rescue block"

@@ -1,0 +1,10 @@
+- name: This playbook demonstrates use of list variable
+  hosts: all 
+  vars:
+    software_tools:
+        - vim
+        - tmux
+        - tree
+        - python3
+  tasks:
+    - name: Print the individual software tools 

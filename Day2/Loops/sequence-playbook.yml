@@ -1,0 +1,6 @@
+- name: This playbook demonstrates the use of with_sequence loop
+  hosts: localhost
+  tasks:
+    - name: Print 1 to 5
+      debug: var=item
+      with_sequence: start=1 end=5
