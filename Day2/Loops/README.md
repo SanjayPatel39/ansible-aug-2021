@@ -27,5 +27,13 @@ docker rm -f $(docker ps -aq)
 ```
 cd ~/ansible-aug-2021
 cd Day2/Loops
-ansible-playbook provision-containers-playbook.yml
+ansible-playbook provision-containers-playbook.yml --ask-become-pass
+```
+
+### Executing the playbook that demonstrates use of dictionary
+```
+cd ~/ansible-aug-2021
+git pull
+cd Day2/Loops
+ansible-playbook dictionary-playbook.yml
 ```
