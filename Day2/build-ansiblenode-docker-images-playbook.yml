@@ -6,8 +6,9 @@
        ignore_errors: yes
           
      - name: Remove the existing ansible ubuntu image
-       shell: docker rmi tektutor/ansible-ubuntu:latest
-       ignore_errors: yes
+       docker_image:
+          name: tektutor/ansible-ubuntu:latest
+          state: absent
 
      - name: Build ubuntu ansible node image
        docker_image:
