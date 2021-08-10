@@ -13,11 +13,13 @@ sudo pip3 install docker-py
 cd ~/ansible-aug-2021
 git pull
 cd Day2/Loops
-anisible-playbook list-playbook.yml
+ansible-playbook list-playbook.yml
 ```
 
 ### Executing playbook that demonstrates with_sequence
 ```
-
+cd ~/ansible-aug-2021
+cd Day2/Loops
+ansible-playbook sequence-playbook.yml
 ```
 
