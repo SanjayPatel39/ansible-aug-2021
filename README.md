@@ -287,3 +287,11 @@ git pull
 cd Day1
 ansible -i hosts all -m ping
 ```
+
+### Using the Static inventory as Ansible Recommended Dir structure
+```
+cd ~/ansible-aug-2021
+git pull
+cd Day1/AnsibleRecommendedDirStructure
+ansible all -m ping
+```
