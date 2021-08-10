@@ -1,13 +1,18 @@
 - name: This playbook demonstrates practical uses of with_sequence loop feature in Ansible
   hosts: localhost
+  become: yes
   tasks:
-     - name: Provision ubuntu containers
-       docker_container:
+    - block:
+        - name: Provision ubuntu containers
+          docker_container:
             image: tektutor/ansible-ubuntu:latest
             name: "ubuntu{{item}}"
             hostname: "ubuntu{{item}}"
             ports:
               - "2{{item}}:22"
               - "8{{item}}:80"
-       with_sequence: start=1 end=10 format="%03d"
+          with_sequence: start=1 end=10 format="%03d"
+      rescue:
+        - name: Install Python SDK for Docker
+          shell: pip3 install docker-py
 

@@ -1,0 +1,14 @@
+- name: This playbook demonstrates use of Dictionary in Ansible playbook 
+  hosts: localhost
+  vars:
+    - env:
+        PYTHON_PATH: /usr/bin/python3
+        JDK_PATH: /usr/lib/java8
+        MAVEN_PATH: /usr/share/maven
+  tasks:
+    - name: Print the dictionary values
+      debug: msg="{{item.key}} ==> {{item.value}}" 
+      with_dict: "{{env}}"
+
+    - name: Print the Python path
+      debug: msg="{{env["PYTHON_PATH"]}}"
