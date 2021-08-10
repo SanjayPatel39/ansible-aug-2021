@@ -1,9 +1,7 @@
 - name: This playbook will install nginx, configures the document root folder, deploys custom web page
   hosts: dev
-  vars:
-    - greeting_msg: Welcome to DevOps!
-    - provisioner_tool: Docker
-    - conf_mgr_tool: Ansible
+  tags:
+    - Install on Ubuntu
   tasks:
     - name: Install nginx in Ubuntu
       apt: name=nginx state=latest update_cache=yes
@@ -34,4 +32,38 @@
 
 - name: This play will install nginx, configures document root fodler, deploys custom web page in CentOS ansible nodes
   hosts: qa
+  tags:
+    - Install on CentOS 
   tasks:
+     - name: Install Extra Packages for Enterprise Linux (EPEL)
+       yum: name=epel-release state=latest
+
+     - name: Install nginx 
+       yum: name=nginx state=latest
+
+     - name: See if curl works
+       shell: curl http://localhost
+       ignore_errors: yes
+       register: output
+
+     - debug: var=output
+
+     - name: Start the nginx service
+       when: output.rc != 0
+       shell: nginx
+
+     - name: Retrieve IP address of the ubuntu node
+       shell: hostname -i
+       register: output
+
+     - name: Create the custom document root folder
+       file: path=/var/html state=directory mode=0755
+
+     - name: Deploy custom html page
+       template: src=index.html.j2 dest=/var/html/index.html
+
+     - name: Configure document root folder
+       copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+     - name: Restart nginx to apply config changes
+       shell: nginx -s reload
