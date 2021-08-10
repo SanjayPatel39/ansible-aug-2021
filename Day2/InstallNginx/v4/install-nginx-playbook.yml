@@ -1,0 +1,10 @@
+- name: This playbook will install nginx, configures the document root folder, deploys custom web page
+  hosts: all 
+  tasks:
+    - include: "install-nginx-{{ansible_distribution|lower}}.yml"
+    - include: "start-nginx-{{ansible_distribution|lower}}.yml"
+
+    - include: common-nginx-tasks.yml
+
+    - include: "configure-nginx-{{ansible_distribution|lower}}.yml"
+    - include: "restart-nginx-{{ansible_distribution|lower}}.yml"

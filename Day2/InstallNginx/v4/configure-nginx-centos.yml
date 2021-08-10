@@ -1,0 +1,2 @@
+- name: Configure document root folder in CentOS
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf

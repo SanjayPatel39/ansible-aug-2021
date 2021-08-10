@@ -1,0 +1,2 @@
+- name: Restart nginx to apply config changes in Ubuntu
+  shell: service nginx restart

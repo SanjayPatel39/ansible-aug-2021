@@ -1,0 +1,58 @@
+- name: This playbook will install nginx, configures the document root folder, deploys custom web page
+  hosts: all 
+  tasks:
+    - name: Install nginx in Ubuntu
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      apt: name=nginx state=latest update_cache=yes
+
+    - name: Install Extra Packages for Enterprise Linux (EPEL) in CentOS
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      yum: name=epel-release state=latest
+
+    - name: Install nginx in CentOS
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      yum: name=nginx state=latest
+
+    - name: Start the nginx service in Ubuntu
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      shell: service nginx start
+
+    - name: See if curl works
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      shell: curl http://localhost
+      ignore_errors: yes
+      register: output
+
+    - debug: var=output
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+
+    - name: Start the nginx service
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" and output.rc != 0)
+      shell: nginx
+
+    - name: Create the custom document root folder
+      file: path=/var/html state=directory mode=0755
+
+    - name: Retrieve IP address of the ubuntu node
+      shell: hostname -i
+      register: output
+
+    - debug: var=output
+
+    - name: Deploy custom web page
+      template: src=index.html.j2 dest=/var/html/index.html
+
+    - name: Configure document root folder in Ubuntu
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      copy: src=default dest=/etc/nginx/sites-available/default
+
+    - name: Configure document root folder in CentOS
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+    - name: Restart nginx to apply config changes in Ubuntu
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      shell: service nginx restart
+
+    - name: Restart nginx to apply config changes in CentOS
+      shell: nginx -s reload

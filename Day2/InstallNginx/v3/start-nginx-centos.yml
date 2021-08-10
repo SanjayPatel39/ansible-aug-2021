@@ -1,0 +1,12 @@
+- name: See if curl works
+  when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+  shell: curl http://localhost
+  ignore_errors: yes
+  register: output
+
+- debug: var=output
+  when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+
+- name: Start the nginx service
+  when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" and output.rc != 0)
+  shell: nginx
