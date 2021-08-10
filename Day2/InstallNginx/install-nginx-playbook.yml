@@ -31,3 +31,7 @@
     # But if the ansible node is not a container, consider using service module.
     - name: Restart nginx to apply config changes
       shell: service nginx restart
+
+- name: This play will install nginx, configures document root fodler, deploys custom web page in CentOS ansible nodes
+  hosts: qa
+  tasks:
