@@ -11,7 +11,17 @@
             ports:
               - "2{{item}}:22"
               - "8{{item}}:80"
-          with_sequence: start=1 end=10 format="%03d"
+          with_sequence: start=1 end=2 format="%03d"
+
+        - name: Provision centos containers
+          docker_container:
+            image: tektutor/ansible-centos:latest
+            name: "centos{{item}}"
+            hostname: "centos{{item}}"
+            ports:
+              - "3{{item}}:22"
+              - "9{{item}}:80"
+          with_sequence: start=1 end=2 format="%03d"
       rescue:
         - name: Install Python SDK for Docker
           shell: pip3 install docker-py

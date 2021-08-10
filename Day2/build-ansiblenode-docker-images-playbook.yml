@@ -19,3 +19,27 @@
              pull: no
            state: present
            source: build
+
+     - name: Cleanup all centos containers
+       shell: docker rm -f $(docker ps -aq --filter="name=centos*")
+       ignore_errors: yes
+          
+     - name: Remove the existing ansible centos image
+       docker_image:
+          name: tektutor/ansible-centos:latest
+          state: absent
+
+     - name: Build centos ansible node image
+       docker_image:
+           name: tektutor/ansible-centos:latest
+           build:
+             dockerfile: CentOSDockerfile
+             path: .
+             pull: no
+           state: present
+           source: build
+
+     - name: This is test task
+       debug: msg="Test task"
+       tags:
+         - Test
