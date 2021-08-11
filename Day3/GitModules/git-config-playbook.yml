@@ -1,0 +1,9 @@
+- name: This playbook prints the existing git config details
+  hosts: localhost
+  tasks:
+    - git_config:
+            repo: https://github.com/tektutor/ansible-aug-2021.git 
+            list_all: yes
+      register: output
+
+    - debug: var=output
