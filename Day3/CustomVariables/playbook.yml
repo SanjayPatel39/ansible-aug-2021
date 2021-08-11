@@ -1,0 +1,16 @@
+- name: Demonstrates use of custom variables
+  hosts: localhost
+  vars:
+    - greeting_msg: "DevOps!"
+  vars_files:
+    - my_variables
+  tasks:
+    - name: Print the greeting message 
+      debug: var=greeting_msg
+
+    - name: Print the configuration manager tool used
+      debug: var=conf_mgr_tool
+
+    - name: Print the provisioner tool used
+      debug: var=provisioner_tool
+

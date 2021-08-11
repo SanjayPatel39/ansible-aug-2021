@@ -1,0 +1,2 @@
+conf_mgr_tool: Ansible
+provisioner_tool: Docker
