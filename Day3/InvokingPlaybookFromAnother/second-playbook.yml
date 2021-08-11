@@ -1,0 +1,4 @@
+- name: Second playbook
+  hosts: localhost
+  tasks:
+    - debug: msg="Second playbook"

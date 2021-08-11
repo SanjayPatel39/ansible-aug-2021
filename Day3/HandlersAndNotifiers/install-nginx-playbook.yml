@@ -1,13 +1,25 @@
 - name: Install nginx to demonstrate handlers and notifiers in a VM
   hosts: all
+  become: yes
   tasks:
-    - name: Install epel package
+    - name: Install epel package in CentOS
+      when: ansible_distribution == "CentOS"
       yum: name=epel-release state=latest
+      notify:
+         - Start nginx service
 
-    - name: Install nginx
+    - name: Install nginx in CentOS
+      when: ansible_distribution == "CentOS"
       yum: name=nginx state=latest
       notify:
          - Start nginx service
+
+    - name: Install nginx in Ubuntu
+      when: ansible_distribution == "Ubuntu"
+      apt: name=nginx state=latest update_cache=yes
+      notify:
+         - Start nginx service
+
   handlers:
     - name: Start nginx service
       service: name=nginx state=started enabled=true

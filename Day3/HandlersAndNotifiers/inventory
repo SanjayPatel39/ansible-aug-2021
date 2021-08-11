@@ -1,2 +1,24 @@
 [all]
-centos1 ansible_user=root ansible_host=172.16.95.149 ansible_private_key_file=~/.ssh/id_rsa
+centos1
+ubuntu1
+
+[ubuntu]
+ubuntu1
+
+[centos]
+centos1
+
+[ubuntu:vars]
+ansible_user=jegan
+ansible_host=172.16.95.150
+
+[centos:vars]
+ansible_user=root
+ansible_host=172.16.95.149
+
+[all:vars]
+ansible_privat_key_file=~/.ssh/id_rsa
+ansible_become_user=root
+ansible_become_password=root
+
+

@@ -1,0 +1,8 @@
+- name: First playbook
+  hosts: localhost
+  tasks:
+    - debug: msg="First playbook"
+    - shell: ansible-playbook second-playbook.yml
+      register: output
+    - debug: var=output
+      
