@@ -6,6 +6,7 @@
     - include: common-nginx-tasks.yml
     - include: "configure-nginx-{{ansible_distribution|lower}}.yml"
 
+  # Dynamic includes aren't supported in handler, hence had to call out the name of handler ymls explicitly below.
   handlers:
     - include: start-nginx-ubuntu.yml
     - include: start-nginx-centos.yml
