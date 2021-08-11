@@ -1,0 +1,21 @@
+- name: This playbook demonstrates how to clone a github repository 
+  hosts: all
+  tasks:
+    - name: Install git on Ubuntu
+      when: ansible_distribution == "Ubuntu"
+      apt: name=git state=latest update_cache=yes
+
+    - name: Install Extra Packages for Enterprise Linux(EPEL) in CentOS
+      when: ansible_distribution == "CentOS"
+      yum: name=epel-release state=latest 
+
+    - name: Install git on CentOS 
+      when: ansible_distribution == "CentOS"
+      yum: name=git state=latest 
+
+    - name: Clone the TekTutor GitHub repository
+      git:
+         clone: yes
+         update: yes 
+         repo: https://github.com/tektutor/ansible-aug-2021.git
+         dest: ~/ansible 
