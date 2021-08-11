@@ -1,0 +1,9 @@
+- name: Demonstrates accessing vault protected data
+  vars_files:
+    - credentials.yml
+  hosts: all 
+
+  tasks:
+     - debug: msg="ansible_user={{ansible_user}}; ansible_host={{ansible_host}}"
+     - debug: msg="private_key={{ansible_private_key_file}}"
+

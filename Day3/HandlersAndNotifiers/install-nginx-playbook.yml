@@ -1,0 +1,13 @@
+- name: Install nginx to demonstrate handlers and notifiers in a VM
+  hosts: all
+  tasks:
+    - name: Install epel package
+      yum: name=epel-release state=latest
+
+    - name: Install nginx
+      yum: name=nginx state=latest
+      notify:
+         - Start nginx service
+  handlers:
+    - name: Start nginx service
+      service: name=nginx state=started enabled=true

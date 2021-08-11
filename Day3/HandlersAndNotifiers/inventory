@@ -1,0 +1,2 @@
+[all]
+centos1 ansible_user=root ansible_host=172.16.95.149 ansible_private_key_file=~/.ssh/id_rsa
