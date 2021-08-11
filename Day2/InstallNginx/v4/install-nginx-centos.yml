@@ -3,3 +3,15 @@
 
 - name: Install nginx in CentOS
   yum: name=nginx state=latest
+
+- name: See if curl works
+  shell: curl http://localhost
+  ignore_errors: yes
+  register: output
+
+- name: When curl fails, notify start nginx service
+  when: output.rc != 0
+  command: /bin/true 
+  notify:
+    - Start the nginx service 
+  

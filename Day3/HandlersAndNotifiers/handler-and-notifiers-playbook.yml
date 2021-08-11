@@ -1,0 +1,26 @@
+- name: Demonstrates handlers and notifiers
+  hosts: localhost
+  tasks:
+    - command: /bin/false
+      ignore_errors: yes
+      notify:
+          - Invoke handler
+          - Invoke second handler
+
+    - command: /bin/false
+      ignore_errors: yes
+      notify:
+          - Invoke handler
+
+  handlers:
+    - name: Invoke handler
+      debug: msg="Only when the previous task succeeds, execute this handler once."
+
+    - name: Invoke second handler
+      debug: msg="Second handler."
+     
+
+    
+
+
+

@@ -1,8 +1,2 @@
-- name: See if curl works
-  shell: curl http://localhost
-  ignore_errors: yes
-  register: output
-
 - name: Start the nginx service
-  when: ( output.rc != 0)
   shell: nginx
