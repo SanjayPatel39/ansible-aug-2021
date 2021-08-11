@@ -19,7 +19,7 @@ You need to type your vault password, when prompted.
 
 ### Editing an ansible vault protected file
 ```
-ansible-vault view credentials.yml
+ansible-vault edit credentials.yml
 ```
 You need to type your vault password, when prompted.
 
@@ -32,7 +32,7 @@ ansible-vault encrypt credentials.yml
 ```
 ansible-vault decrypt credentials.yml
 ```
-
+view
 
 ### Executing the playbook that accesses vault-protected file
 ```
