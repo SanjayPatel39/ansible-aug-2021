@@ -1,10 +1,16 @@
 - name: Install custom facts in ansible nodes
   hosts: all
 
+  vars:
+    facts:
+      - ip.fact
+      - host.fact
+
   tasks:
     - name: Create the ansible facts folder
       file: path=/etc/ansible/facts.d state=directory mode=0755
 
-    - name: Install the custom fact
-      copy: src=ip.fact dest=/etc/ansible/facts.d/ip.fact mode=700
+    - name: Install the custom facts
+      copy: src="{{item}}" dest="/etc/ansible/facts.d/{{item}}" mode=700
+      with_items: "{{facts}}"
 
