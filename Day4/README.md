@@ -45,6 +45,11 @@ ssh-keygen
 ```
 Accept all defaults by hitting enter thrice without modifying any options while generating ssh-keygen
 
+### Delete existing containers(if any)
+```
+sudo su -
+docker rm -f $(docker ps -aq)
+```
 
 ### Building ansible node docker images
 ```
