@@ -38,12 +38,20 @@ ansible --version
 git clone http://github.com/tektutor/ansible-aug-2021.git
 ```
 
+### Create key pair for root user
+```
+sudo su -
+ssh-keygen
+```
+Accept all defaults by hitting enter thrice without modifying any options while generating ssh-keygen
+
+
 ### Building ansible node docker images
 ```
 sudo su -
 pip3 install docker-py
-cd ansibcd ansible-aug-2021/Day2
-le-aug-2021/Day2
+cd ansible-aug-2021/Day2
+cp /root/.ssh/id_rsa.pub authorized_keys
 ansible-playbook build-ansiblenode-docker-images-playbook.yml
 ```
 
