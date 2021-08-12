@@ -1,0 +1,9 @@
+- name: Demonstrates Ansible Filters
+  hosts: all
+  tasks:
+   - name: Collect only subset of facts
+      ansible.builtin.setup:
+          filter:
+            - 'ansible_distribution'
+            - 'ansible_os_family'
+            - 'ansible_hostname'
