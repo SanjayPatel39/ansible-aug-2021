@@ -143,3 +143,12 @@ cd Day4/LinearVsFreeStrategy
 ansible-playbook install-nginx-playbook.yml
 ```
 You can record the time the playbook took to complete. Now, you may modify the ansible.cfg strategy to free and rerun the playbook. You may now compare the time difference, generally free stratefy seems to be faster than linear.
+
+### Installing Ansible Tower
+```
+sudo su -
+wget https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-latest.tar.gz
+tar xvfz ansible-tower-setup-latest.tar.gz
+cd /root/ansible-tower-setup-3.8.3-2
+```
+We need to edit the inventory before running the setup.sh which inturn starts a playbook to install Ansible Tower.
