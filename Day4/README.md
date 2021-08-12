@@ -88,3 +88,19 @@ CONTAINER ID   IMAGE                            COMMAND               CREATED   
 83ae1cb95fdc   tektutor/ansible-ubuntu:latest   "/usr/sbin/sshd -D"   5 seconds ago   Up 4 seconds   0.0.0.0:2002->22/tcp, 0.0.0.0:8002->80/tcp   ubuntu002
 14883f9c8a81   tektutor/ansible-ubuntu:latest   "/usr/sbin/sshd -D"   6 seconds ago   Up 5 seconds   0.0.0.0:2001->22/tcp, 0.0.0.0:8001->80/tcp   ubuntu001
 </pre>
+
+### See if ansible ping works
+```
+sudo su -
+cd ~ansible-aug-2021
+cd Day2/InstallNginx/v4
+ansible all -m ping
+```
+
+### Let's try install nginx 
+```
+sudo su -
+cd ~ansible-aug-2021
+cd Day2/InstallNginx/v4
+ansible-playbook install-nginx-playbook.yml
+```
