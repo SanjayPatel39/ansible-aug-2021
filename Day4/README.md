@@ -21,3 +21,7 @@ sudo su -
 yum install -y git tree vim
 ```
 
+### Clone the TekTutor github repo for all the source code
+```
+git clone http://github.com/tektutor/ansible-aug-2021.git
+```
