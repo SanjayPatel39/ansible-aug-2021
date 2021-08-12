@@ -42,7 +42,8 @@ git clone http://github.com/tektutor/ansible-aug-2021.git
 ```
 sudo su -
 pip3 install docker-py
-cd ansible-aug-2021/Day2
+cd ansibcd ansible-aug-2021/Day2
+le-aug-2021/Day2
 ansible-playbook build-ansiblenode-docker-images-playbook.yml
 ```
 
@@ -60,3 +61,9 @@ ubuntu                    16.04     38b3fa4640d4   2 weeks ago      135MB
 centos                    8         300e315adb2f   8 months ago     209MB
 [root@ip-172-31-2-163 Day2]# 
 </pre>
+
+### Let's provision couple of containers on ubuntu and centos
+```
+cd ansible-aug-2021/Day2/Loops
+ansible-playbook provision-containers-playbook.yml
+```
