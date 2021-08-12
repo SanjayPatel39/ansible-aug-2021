@@ -15,4 +15,9 @@ docker --version
 docker images
 ```
 
+### Let's install git, vim and tree utility
+```
+sudo su -
+yum install -y git tree vim
+```
 
