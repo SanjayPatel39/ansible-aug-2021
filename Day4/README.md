@@ -45,3 +45,18 @@ pip3 install docker-py
 cd ansible-aug-2021/Day2
 ansible-playbook build-ansiblenode-docker-images-playbook.yml
 ```
+
+### Verify if the ubuntu and centos nodes images are built properly
+```
+docker images
+```
+The expected output is shown below
+<pre>
+root@ip-172-31-2-163 Day2]# docker images
+REPOSITORY                TAG       IMAGE ID       CREATED          SIZE
+tektutor/ansible-centos   latest    66705dfb276b   5 seconds ago    257MB
+tektutor/ansible-ubuntu   latest    bf41d1242e83   30 seconds ago   220MB
+ubuntu                    16.04     38b3fa4640d4   2 weeks ago      135MB
+centos                    8         300e315adb2f   8 months ago     209MB
+[root@ip-172-31-2-163 Day2]# 
+</pre>
