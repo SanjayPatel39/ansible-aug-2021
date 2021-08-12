@@ -133,3 +133,13 @@ rm -rf facts
 ansible-playbook playbook.yml 
 ```
 You may observe the facts folder with only selective facts are captured as opposed to all facts.
+
+### Linear vs Free Strategy
+You can change the strategy to linear in ansible.cfg before running
+```
+cd ~/ansible-aug-2021
+git pull
+cd Day4/LinearVsFreeStrategy
+ansible-playbook install-nginx-playbook.yml
+```
+You can record the time the playbook took to complete. Now, you may modify the ansible.cfg strategy to free and rerun the playbook. You may now compare the time difference, generally free stratefy seems to be faster than linear.
