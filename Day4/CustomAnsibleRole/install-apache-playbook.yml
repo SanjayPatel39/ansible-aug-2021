@@ -1,0 +1,4 @@
+- name: Demonstrates on how to use your custom role
+  hosts: all
+  roles:
+    - apache

@@ -1,0 +1,5 @@
+---
+- name: Configure httpd document rool folder and grant permission in CentOS
+  copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+  notify: 
+    - Restart httpd in CentOS
