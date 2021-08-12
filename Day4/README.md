@@ -85,26 +85,4 @@ The expected output is
 CONTAINER ID   IMAGE                            COMMAND               CREATED         STATUS         PORTS                                        NAMES
 6bfc350c3a2f   tektutor/ansible-centos:latest   "/usr/sbin/sshd -D"   6 seconds ago   Up 6 seconds   0.0.0.0:3002->22/tcp, 0.0.0.0:9002->80/tcp   centos002
 5149aa5b8999   tektutor/ansible-centos:latest   "/usr/sbin/sshd -D"   7 seconds ago   Up 6 seconds   0.0.0.0:3001->22/tcp, 0.0.0.0:9001->80/tcp   centos001
-b56442034082   tektut### Delete existing containers(if any)
-49
-```
-50
-sudo su -
-51
-docker rm -f $(docker ps -aq)
-52### Delete existing containers(if any)
-49
-```
-50
-sudo su -
-51
-docker rm -f $(docker ps -aq)
-52
-```
-53
-
-```
-53
-or/ansible-ubuntu:latest   "/usr/sbin/sshd -D"   8 seconds ago   Up 7 seconds   0.0.0.0:2002->22/tcp, 0.0.0.0:8002->80/tcp   ubuntu002
-2b7d6ab9606f   tektutor/ansible-ubuntu:latest   "/usr/sbin/sshd -D"   8 seconds ago   Up 8 seconds   0.0.0.0:2001->22/tcp, 0.0.0.0:8001->80/tcp   ubuntu001
 </pre>
