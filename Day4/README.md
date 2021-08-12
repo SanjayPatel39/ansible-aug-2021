@@ -128,6 +128,8 @@ The expected output is
 	</body>
 
 </html>
+</pre>
+<pre>
 [root@ip-172-31-2-163 v4]# curl http://localhost:8002
 <html>
 
@@ -142,6 +144,8 @@ The expected output is
 	</body>
 
 </html>
+</pre>
+<pre>
 [root@ip-172-31-2-163 v4]# curl http://localhost:9001
 <html>
 
@@ -156,6 +160,8 @@ The expected output is
 	</body>
 
 </html>
+</pre>
+<pre>
 [root@ip-172-31-2-163 v4]# curl http://localhost:9002
 <html>
 
