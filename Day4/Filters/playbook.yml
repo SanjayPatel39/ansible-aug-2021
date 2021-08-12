@@ -1,9 +1,18 @@
 - name: Demonstrates Ansible Filters
   hosts: all
+  gather_facts: False
+  vars:
+    fact_list:
+      - ansible_distribution
+      - ansible_os_family
   tasks:
    - name: Collect only subset of facts
-      ansible.builtin.setup:
-          filter:
-            - 'ansible_distribution'
-            - 'ansible_os_family'
-            - 'ansible_hostname'
+     setup:
+       filter: "{{item}}" 
+     loop: "{{fact_list}}"
+
+   - debug: var=ansible_distribution
+   - debug: var=ansible_os_family
+
+   # The below line should report ansible_user_shell is undefined as the below fact isn't collected
+   - debug: var=ansible_user_shell
