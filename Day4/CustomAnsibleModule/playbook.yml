@@ -1,0 +1,14 @@
+- name: Demonstrates invoking our custom hello module
+  hosts: all
+  tasks:
+    - name: Invoke hello module
+      hello: greeting_msg="DevOps"
+      register: output
+
+    - debug: var=output
+
+    - name: Invoke ip module
+      ip: 
+      register: output
+
+    - debug: var=output
