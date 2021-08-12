@@ -37,3 +37,11 @@ ansible --version
 ```
 git clone http://github.com/tektutor/ansible-aug-2021.git
 ```
+
+### Building ansible node docker images
+```
+sudo su -
+pip3 install docker-py
+cd ansible-aug-2021/Day2
+ansible-playbook build-ansiblenode-docker-images-playbook.yml
+```
