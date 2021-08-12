@@ -112,3 +112,43 @@ curl http://localhost:8002
 curl http://localhost:9001
 curl http://localhost:9002
 ```
+
+### Save collected facts to JSON file
+```
+sudo su -
+cd ~ansible-aug-2021
+git pull
+cd Day4/FactsCachingToJSON
+ansible all -m setup 
+```
+Now you may investigate the facts folder for the JSON files in the name of the host listed in the inventory file.
+
+### Trying out the facts filter plugin
+```
+sudo su -
+cd ~ansible-aug-2021
+git pull
+cd Day4/Filters
+rm -rf facts
+ansible-playbook playbook.yml 
+```
+You may observe the facts folder with only selective facts are captured as opposed to all facts.
+
+### Linear vs Free Strategy
+You can change the strategy to linear in ansible.cfg before running
+```
+cd ~/ansible-aug-2021
+git pull
+cd Day4/LinearVsFreeStrategy
+ansible-playbook install-nginx-playbook.yml
+```
+You can record the time the playbook took to complete. Now, you may modify the ansible.cfg strategy to free and rerun the playbook. You may now compare the time difference, generally free stratefy seems to be faster than linear.
+
+### Installing Ansible Tower
+```
+sudo su -
+wget https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-latest.tar.gz
+tar xvfz ansible-tower-setup-latest.tar.gz
+cd /root/ansible-tower-setup-3.8.3-2
+```
+We need to edit the inventory before running the setup.sh which inturn starts a playbook to install Ansible Tower.
