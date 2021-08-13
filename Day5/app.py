@@ -1,10 +1,12 @@
+#!/usr/bin/python3
+
 from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/hello/', methods=['GET', 'POST'])
+@app.route('/hello', methods=['GET', 'POST'])
 def sayHello():
     return "Hello World!"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=105)
+    app.run(host='0.0.0.0', port=80)

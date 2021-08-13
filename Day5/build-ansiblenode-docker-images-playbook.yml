@@ -1,0 +1,21 @@
+- name: This playbook will build jenkins slave node image
+  hosts: localhost
+  tasks:
+     - name: Cleanup all jenkins slave containers
+       shell: docker rm -f $(docker ps -aq --filter="name=docker-slave*")
+       ignore_errors: yes
+          
+     - name: Remove the existing jenkins slave image
+       docker_image:
+          name: tektutor/python-flask-app:1.0 
+          state: absent
+
+     - name: Build jenkins slave node image
+       docker_image:
+           name: tektutor/python-flask-app:1.0 
+           build:
+             dockerfile: JenkinsSlaveDockerfile
+             path: .
+             pull: no
+           state: present
+           source: build

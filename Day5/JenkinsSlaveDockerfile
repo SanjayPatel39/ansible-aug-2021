@@ -1,0 +1,13 @@
+FROM alpine:latest
+MAINTAINER Jeganathan Swaminathan <jegan@tektutor.org>
+
+RUN apk add --no-cache 
+RUN apk add python3 py3-pip git 
+RUN pip3 install flask 
+COPY app.py /app.py
+COPY apptest.py /apptest.py
+
+EXPOSE 80
+
+CMD ["/app.py"]
+
