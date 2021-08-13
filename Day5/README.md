@@ -14,3 +14,9 @@ yum install -y java-11-openjdk-devel
 ```
 java -version
 ```
+
+### Launching jenkins (You won't be able to use this terminal)
+```
+sudo su -
+java -jar ./jenkins.war
+```
