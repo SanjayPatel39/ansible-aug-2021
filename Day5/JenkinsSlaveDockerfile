@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER Jeganathan Swaminathan <jegan@tektutor.org>
 
-RUN apk add --no-cache 
+RUN apk add --no-cache java-1.8.0-openjdk 
 RUN apk add python3 py3-pip git 
 RUN pip3 install flask 
 COPY app.py /app.py
